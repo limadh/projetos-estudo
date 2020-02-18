@@ -1,0 +1,60 @@
+<app-cliente-header></app-cliente-header>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="content">
+    <h3>Editar Cliente</h3>
+    <div class="campo">
+        <p-messages [(value)]="msgs"></p-messages>
+    </div>
+    
+    <div class="campo">
+        <span class="ui-float-label">
+            <input id="nomeCliente" type="text" formControlName="nomeCliente" size="30" pInputText> 
+            <label for="float-input">Nome</label>
+        </span>
+    </div>
+
+    <div class="campo">
+        <span class="ui-float-label">
+            <input id="emailCliente" type="text" formControlName="emailCliente" size="30" pInputText> 
+            <label for="float-input">Email</label>
+        </span>
+    </div>
+
+    <div class="campo">
+        <span class="ui-float-label">
+            <input id="telefoneCliente" mask="(99)99999-9999" type="text" formControlName="telefoneCliente" size="30" pInputText> 
+            <label for="float-input">Telefone</label>
+        </span>
+    </div>
+
+    <div class="campo">
+        <p-calendar formControlName="date" [locale]="pt" dateFormat="dd/mm/yy" [showIcon]="true"></p-calendar>
+    </div>
+
+    <div class="campo">
+        <span class="ui-float-label">
+            <input id="obsCliente" type="text" formControlName="obsCliente" size="30" pInputText> 
+            <label for="float-input">Obs</label>
+        </span>
+    </div>
+
+    <div class="campo">
+        <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
+    </div>
+
+    <div class="campo" *ngIf="isApresentarBotao">
+        <button pButton [disabled]="false" type="submit" class="ui-button-warning" icon="pi pi-fw pi-save" iconPos="left" label="Salvar Cliente"></button> 
+    </div>
+    
+    <div class="campo">
+        <button pButton type="button" [routerLink]="['/', 'clientes']"  label="Listar Clientes"></button>
+    </div>
+
+    <div class="campo" *ngIf="isApresentarBotao">
+        <button pButton  type="button" ng-model="button" ng-disabled="checked" (click)="confirm(idCliente)" class="ui-button-danger" icon="pi pi-fw pi-trash" iconPos="left" label="Deletar Cliente"></button>
+    </div>
+
+
+</div>
+</form>
+<app-cliente-footer></app-cliente-footer>

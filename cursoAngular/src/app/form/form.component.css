@@ -1,0 +1,7 @@
+body{ padding: 0; }
+.content{ margin: 0 auto; background-color: beige; width: 960px; }
+.form{
+    margin: 5px;
+}
+
+.campo{ height: 40px; }

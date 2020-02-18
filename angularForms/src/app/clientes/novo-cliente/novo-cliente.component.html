@@ -1,0 +1,68 @@
+<app-cliente-header></app-cliente-header>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="content">
+    <h3>Cadastrar Cliente</h3>
+
+    <div class="campo">
+        <p-messages [(value)]="msgs"></p-messages>
+    </div>
+    
+    <div class="campo">
+        <span class="ui-float-label">
+            <input id="txtnome" type="text" formControlName="nomeCliente" size="30" pInputText> 
+            <label for="float-input">Nome</label>
+        </span>
+    </div>
+
+    <div class="campo">
+        <span class="ui-float-label">
+            <input id="txtemail" type="text" formControlName="emailCliente" size="30" pInputText> 
+            <label for="float-input">Email</label>
+        </span>
+    </div>
+
+    <div class="campo">
+        <span class="ui-float-label">
+            <input id="txttelefone"  type="text" formControlName="telefoneCliente" size="30" pInputText>
+            <label for="float-input">Telefone</label>
+        </span>
+    </div>
+
+    <div class="campo">
+        <p-calendar formControlName="date" [locale]="pt" dateFormat="dd/mm/yy" [showIcon]="true"></p-calendar>
+    </div>
+
+    <div class="campo">
+        <span class="ui-float-label">
+            <input id="txtobs" type="text" formControlName="obsCliente" size="30" pInputText> 
+            <label for="float-input">Obs</label>
+        </span>
+    </div>
+
+    <div class="campo">
+        <button pButton type="submit" icon="pi pi-fw pi-save" iconPos="left" label="Cadastrar Cliente"></button>     
+    </div>
+
+</div>
+</form>
+<div class="content" *ngIf="cliente">
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Obs</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>{{ cliente.nomeCliente }}</td>
+            <td>{{ cliente.emailCliente }}</td>
+            <td>{{ cliente.telefoneCliente }}</td>
+            <td>{{ cliente.obsCliente }}</td>
+            <td>
+            <button pButton type="button" [routerLink]="['/editar', cliente.id]"  label="Editar" class="ui-button-secondary"></button>
+            </td>
+        </tr>
+    </table>
+</div>
+<app-cliente-footer></app-cliente-footer>

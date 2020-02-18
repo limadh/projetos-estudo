@@ -1,0 +1,26 @@
+<app-cliente-header></app-cliente-header>
+<div class="content">
+    <h3>Clientes</h3>
+    <div class="campo">
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Obs</th>
+                <th>Data Nascimento</th>
+            </tr>
+            <tr *ngFor="let cliente of clientes" [routerLink]="['editar', cliente.id]">
+                <td>{{ cliente.nomeCliente }}</td>
+                <td>{{ cliente.emailCliente }}</td>
+                <td>{{ cliente.telefoneCliente }}</td>
+                <td>{{ cliente.obsCliente }}</td>
+                <td>{{ cliente.nascimentoCliente }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="campo">
+        <p-paginator [rows]="clientesPage" [totalRecords]="totalClientes" [rowsPerPageOptions]="[10,20,30]" (onPageChange)="paginate($event)"></p-paginator>
+    </div>
+</div>
+<app-cliente-footer></app-cliente-footer>

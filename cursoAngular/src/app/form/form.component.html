@@ -1,0 +1,25 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+<div class="content">    
+    <h1>Cadastro</h1>
+    <div class="form">
+        <div class="campo">
+            <span><b>Nome:</b></span>
+            <span>
+                <input type="text" formControlName="nome" name="nome" id="nome" placeholder="Nome"  />
+            </span>
+        </div>
+        
+        <div class="campo">
+            <span><b>Email:</b></span>
+            <span>
+                <input type="text" formControlName="email" name="email" id="email" placeholder="E-mail"  />
+            </span>
+        </div>
+        
+        <div class="campo">
+            <button type="submit">Cadastrar Cliente</button>
+            <button type="button" (click)="resetar()">Resetar</button>
+        </div>        
+    </div>    
+</div>
+</form>

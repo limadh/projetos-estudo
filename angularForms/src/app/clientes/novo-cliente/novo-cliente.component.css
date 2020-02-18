@@ -1,0 +1,12 @@
+.content{
+    margin: 0 auto;
+    width: 960px;
+}
+
+.content table{ width: 100%; }
+
+.content th{ text-align: left; }
+
+.campo{
+    padding-bottom: 35px;
+}
