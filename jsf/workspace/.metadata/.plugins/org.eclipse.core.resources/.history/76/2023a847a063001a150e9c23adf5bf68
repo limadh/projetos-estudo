@@ -1,0 +1,8 @@
+<div class="menu">
+	<p:menu styleClass="menuleft">
+		<p:menuitem value="Listar Clientes"
+			url="http://localhost:8080/br.com.projeto-1.0/paginas/cliente/listar.xhtml" />
+		<p:menuitem value="Cadastrar Cliente"
+			url="http://localhost:8080/br.com.projeto-1.0/paginas/cliente/cadastro.xhtml" />
+	</p:menu>
+</div>

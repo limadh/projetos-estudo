@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="StyleSheet" type="text/css"
+		href="http://localhost:8080/br.com.projeto-1.0/css/layout.css" media="screen" />
+	<title>Novo Cliente</title>
+</h:head>
+
+<h:body>
+
+	<div class="menu">
+		<p:menu styleClass="menuleft">
+			<p:menuitem value="Listar Clientes"
+				url="http://localhost:8080/br.com.projeto-1.0/paginas/cliente/listar.xhtml" />
+			<p:menuitem value="Cadastrar Cliente"
+				url="http://localhost:8080/br.com.projeto-1.0/paginas/cliente/cadastro.xhtml" />
+		</p:menu>
+	</div>
+
+	<div class="page">
+		<div class="content">
+			<h:form id="formEdicaoCliente">
+				<h2>Editar de Clientes:</h2>
+				<h:panelGrid>
+					<label>ID:</label>
+					<h:inputText id="id" disabled="true" value="#{clienteBean.cliente.id}" />
+					<label>Nome:</label>
+					<h:inputText id="nome" value="#{clienteBean.cliente.nome}" />
+					<label>Email:</label>
+					<h:inputText id="email" value="#{clienteBean.cliente.email}" />
+					<label>Telefone:</label>
+					<h:inputText id="telefone" value="#{clienteBean.cliente.telefone}" />
+					<label>Obs:</label>
+					<h:inputTextarea id="obs" value="#{clienteBean.cliente.obs}" rows="3"
+						cols="20" />
+					<h:commandButton value="Alterar" action="#{clienteBean.alterar(clienteBean.cliente)}" />
+					<h:commandButton value="Deletar" action="#{clienteBean.deletar(clienteBean.cliente)}" />
+				</h:panelGrid>
+			</h:form>
+		</div>
+		<div class="both">
+		</div>
+	</div>
+
+</h:body>
+</html>

@@ -1,0 +1,54 @@
+package br.com.projeto.controller;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import br.com.projeto.model.Cliente;
+import br.com.projeto.server.ClienteServer;
+import lombok.Getter;
+import lombok.Setter;
+
+
+@Getter
+@Setter
+@Named(value = "clienteBean")
+public class ClienteBean implements Serializable{
+
+	private static final long serialVersionUID = 8723851285391518495L;
+	
+	
+	private Long id;
+	private String nome;
+	private String email;
+	private String telefone;
+	private String obs;	
+	
+	@Inject
+	private ClienteServer server;	
+	
+	@Inject
+	private Cliente cliente;
+	
+	private List<Cliente> clientes;
+	
+	@PostConstruct
+    public void init() {
+		clientes = server.buscarClientes();
+	}
+	
+	public String novo() {
+		cliente.setNome("teste");
+		cliente.setEmail(email);
+		cliente.setObs(obs);
+		server.novo(cliente);
+		return "";
+	}
+	
+	
+	
+	
+}

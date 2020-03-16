@@ -1,0 +1,4 @@
+br\com\projeto\model\Cliente.class
+br\com\projeto\controller\ClienteBean.class
+br\com\projeto\repository\ClienteRepository.class
+br\com\projeto\server\ClienteServer.class

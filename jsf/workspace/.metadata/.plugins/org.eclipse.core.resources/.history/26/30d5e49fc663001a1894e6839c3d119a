@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="StyleSheet" type="text/css"
+		href="http://localhost:8080/br.com.projeto-1.0/css/layout.css" media="screen" />
+	<title>Novo Cliente</title>
+</h:head>
+
+<h:body>
+
+	<ui:include src="/paginas/menu.xhtml"></ui:include>
+
+	<div class="page">
+		<div class="content">
+			<h:form id="formCadastroCliente">
+				<p:message for="nome" />
+				<h2>Cadastro de Clientes:</h2>
+				<h:panelGrid>
+					<label>Nome:</label>
+					<h:inputText id="nome" label="Nome" value="#{clienteBean.cliente.nome}" required="true">
+						<f:validateLength minimum="2" />
+					</h:inputText>
+					<label>Email:</label>
+					<h:inputText id="email" value="#{clienteBean.cliente.email}" />
+					<label>Telefone:</label>
+					<h:inputText id="telefone" value="#{clienteBean.cliente.telefone}" />
+					<label>Obs:</label>
+					<h:inputTextarea id="obs" value="#{clienteBean.cliente.obs}" rows="3" cols="20" />
+					<h:commandButton value="Cadastrar" action="#{clienteBean.novo}" />
+					<p:commandButton action="#{buttonView.buttonAction}" id="iconOnly" update="growl" style="margin-right:20px;" icon="pi pi-save" title="Icon Only" />
+				</h:panelGrid>
+			</h:form>
+		</div>
+		<div class="both">
+		</div>
+	</div>
+	<ui:include src="/paginas/footer.xhtml"></ui:include>
+</h:body>
+</html>

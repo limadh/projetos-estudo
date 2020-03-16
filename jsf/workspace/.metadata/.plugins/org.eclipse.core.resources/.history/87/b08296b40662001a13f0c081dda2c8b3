@@ -1,0 +1,78 @@
+package br.com.projeto.repository;
+
+import java.util.List;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+
+import br.com.projeto.model.Cliente;
+
+@ApplicationScoped
+public class ClienteRepository {
+	
+	@PersistenceContext
+	private EntityManager em;
+	
+	public void novo(Cliente cliente) {
+		try {			
+			em.persist(cliente);			
+		} catch(Exception ex){
+			ex.printStackTrace();
+            em.getTransaction().rollback();
+		}
+	}
+	
+	public void alterar(Cliente cliente) {
+		try {			
+			em.merge(cliente);			
+		} catch(Exception ex){
+			ex.printStackTrace();
+            em.getTransaction().rollback();
+		}
+	}
+	
+	public void remover(Cliente cliente) {
+		try {
+            //em.getTransaction().begin();
+            //cliente = em.find(Cliente.class, cliente.getId());
+            em.remove(cliente);
+            //em.getTransaction().commit();
+         } catch (Exception ex) {
+            ex.printStackTrace();
+            em.getTransaction().rollback();
+         }
+	}
+	
+	public void removerPorId(final int id) {
+		try {
+            Cliente cliente = buscarPorId(id);
+            remover(cliente);
+         } catch (Exception ex) {
+            ex.printStackTrace();
+         }
+	}
+	
+	public Cliente buscarPorId(final int id) {
+        return em.find(Cliente.class, id);
+      }
+
+	public List<Cliente> buscarClientes(){
+		CriteriaBuilder builder = em.getCriteriaBuilder();
+	    CriteriaQuery<Cliente> criteria = builder.createQuery(Cliente.class);
+	    criteria.from(Cliente.class);
+	    return em.createQuery(criteria).getResultList();
+		
+		/*
+		em.getTransaction().begin();		
+		Query consulta = em.createQuery("SELECT * FROM clientes");		
+		List<Cliente> lista = consulta.getResultList();		
+		em.getTransaction().commit();
+		emf.close();
+		return lista;
+		*/
+	}
+	
+}

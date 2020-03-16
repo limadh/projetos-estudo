@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui">
+
+<div class="menu">
+	<p:menu styleClass="menuleft">
+		<h3>Clientes</h3>
+		<p:menuitem value="Listar Clientes"
+			url="http://localhost:8080/br.com.projeto-1.0/paginas/cliente/listar.xhtml" />
+		<p:menuitem value="Cadastrar Cliente"
+			url="http://localhost:8080/br.com.projeto-1.0/paginas/cliente/cadastro.xhtml" />
+	</p:menu>
+</div>
+</html>
